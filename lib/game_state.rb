@@ -1,7 +1,12 @@
 require 'map'
 
 ##
-# The current state of a game on a given turn.
+# The current state of a game on a given turn. At any given time, an instance of
+# this class will contain ALL available information about the state of the game,
+# which include, at a minimum, the game_start data.
+#
+# As updates come in from the generals.io server, updated game data will be
+# patched in.
 class GameState
   # NOTE: Converts all incoming data keys to snake_case symbols so they can be
   # accessed via dotted notation
