@@ -73,5 +73,5 @@ understand that the interface only has three methods:
 * `game_over` - called only when the game ends
 
   [generals-web]: http://dev.generals.io/
-  [bot_interface]: https://github.com/jefflunt/generals.io-client/blob/master/lib/bot_interface.rb
+  [bot_interface]: https://github.com/jefflunt/ruby-generals.io-client/blob/master/lib/bot_interface.rb
   [socket.io-client]: https://github.com/jefflunt/socket.io-client-simple-1.2.1-custom
