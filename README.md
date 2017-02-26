@@ -60,17 +60,9 @@ game so you can play over and over until you manually kill the client (i.e. via
 
 Bring your own bot.
 
-If you overwrite [`lib/bot_interface.rb`][bot_interface] with your own custom
-code, then this client will become a fully capable game-playing bot of your
-own. You're free to do whatever you want in that file, so long as you
-understand that the interface only has three methods:
-
-* `start` - called when a new game starts, and used to pass the
-  initial game state information to the bot (who are the players, what are the
-  teams, etc.)
-* `update` - called every time the generals.io server sends a `game_update`
-  event - see `lib/game_state.rb` for more info
-* `game_over` - called only when the game ends
+All you need to do to create your own generals.io bot is to add your code to
+[`lib/bot_interface.rb`][bot_interface]. See the documentation there to get
+started.
 
   [generals-web]: http://dev.generals.io/
   [bot_interface]: https://github.com/jefflunt/ruby-generals.io-client/blob/master/lib/bot_interface.rb
