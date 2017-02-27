@@ -1,7 +1,7 @@
 require 'socket.io-client-simple'
 require 'api'
 require 'logger'
-require 'bot_interface'
+require 'yaml'
 
 module Client
   # See lib/socket.io-client-simple/client.rb:120
@@ -9,6 +9,9 @@ module Client
   def self.configure(url:, user_id:, username:, game_id:)
     socket = SocketIO::Client::Simple.connect(url)
     @@config = Struct::ClientParams.new(socket, url, user_id, username, game_id, true)
+
+    bot_filename = YAML.load(IO.read('./config.yml'))['bot_filename']
+    require_relative(bot_filename)
   end
 
   def self.config

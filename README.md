@@ -64,6 +64,9 @@ All you need to do to create your own generals.io bot is to add your code to
 [`lib/bot_interface.rb`][bot_interface]. See the documentation there to get
 started.
 
+If you'd rather keep your bot logic in its own folder, change the value in
+`config.yml` to point to your bot logic.
+
   [generals-web]: http://dev.generals.io/
   [bot_interface]: https://github.com/jefflunt/ruby-generals.io-client/blob/master/lib/bot_interface.rb
   [socket.io-client]: https://github.com/jefflunt/socket.io-client-simple-1.2.1-custom
