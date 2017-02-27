@@ -19,7 +19,7 @@ module Client
   end
 
   def self.join_game!(socket)
-    API.send('join_private', socket, config.game_id)
+    API.send('join_private', socket, config.game_id, config.user_id)
     API.send('set_force_start', socket, config.game_id, true)
   end
 
@@ -28,7 +28,7 @@ module Client
       config = Client.config
 
       Logger.log 'connect'
-      API.send('set_username', self, config.user_id, config.username)
+      API.send('set_username', self, config.user_id, "[Bot] #{config.username}")
       Client.join_game!(self)
     end
 
@@ -40,6 +40,10 @@ module Client
     config.socket.on :error do |err|
       Logger.log "Error: #{err.inspect}"
       Logger.log err.backtrace.join("\n#{' ' * 27}")
+    end
+
+    config.socket.on :error_set_username do |err|
+      Logger.log "Error setting username: #{err.inspect}"
     end
 
     config.socket.on :game_start do |data|
